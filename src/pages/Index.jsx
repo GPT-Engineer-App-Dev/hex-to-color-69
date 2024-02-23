@@ -5,6 +5,7 @@ import { FaSearch } from "react-icons/fa";
 const Index = () => {
   const [colorHex, setColorHex] = useState("");
   const [colorName, setColorName] = useState("");
+  const [apiColor, setApiColor] = useState("");
   const toast = useToast();
 
   const fetchColorName = async (hex) => {
@@ -16,7 +17,9 @@ const Index = () => {
       const data = await response.json();
       if (data.colors && data.colors.length > 0) {
         setColorName(data.colors[0].name);
+        setApiColor(data.colors[0].hex);
       } else {
+        setApiColor("");
         throw new Error("Color not found");
       }
     } catch (error) {
@@ -45,9 +48,9 @@ const Index = () => {
         <Text mt={4}>Enter a HEX color code to find its name.</Text>
         <Input placeholder="#aabbcc" value={colorHex} onChange={(e) => setColorHex(e.target.value)} mt={2} />
 
-        {colorName && (
-          <Box mt={2} p={2} bg={`#${colorHex}`.replace("##", "#")} color="white" borderWidth="1px">
-            Color Preview
+        {apiColor && (
+          <Box mt={2} p={2} bg={apiColor} color="white" borderWidth="1px">
+            API Color Preview: {apiColor}
           </Box>
         )}
         {colorName && (
