@@ -46,7 +46,7 @@ const Index = () => {
         <Input placeholder="#aabbcc" value={colorHex} onChange={(e) => setColorHex(e.target.value)} mt={2} />
 
         {colorName && (
-          <Box mt={2} p={2} bg={`#${colorHex}`} color="white" borderWidth="1px">
+          <Box mt={2} p={2} bg={`#${colorHex}`.replace("##", "#")} color="white" borderWidth="1px">
             Color Preview
           </Box>
         )}
