@@ -56,7 +56,7 @@ const Index = () => {
           Translate Hex
         </Button>
         {colorName && (
-          <Box mt={2} p={2} bg={`#${colorHex}`} borderWidth="1px">
+          <Box mt={2} p={2} bg={`#${colorHex}`} color="white" borderWidth="1px">
             Color Preview
           </Box>
         )}
