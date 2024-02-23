@@ -31,20 +31,12 @@ const Index = () => {
     }
   };
 
-  const handleColorSearch = () => {
+  useEffect(() => {
     const trimmedHex = colorHex.trim().replace("#", "");
     if (/^[0-9A-Fa-f]{6}$/.test(trimmedHex)) {
       fetchColorName(trimmedHex);
-    } else {
-      toast({
-        title: "Invalid Hex Code",
-        description: "Please enter a valid hex color code.",
-        status: "warning",
-        duration: 5000,
-        isClosable: true,
-      });
     }
-  };
+  }, [colorHex]);
 
   return (
     <VStack spacing={4} align="stretch">
