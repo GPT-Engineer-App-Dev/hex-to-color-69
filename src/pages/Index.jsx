@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Input, Button, Text, VStack, Heading, useToast } from "@chakra-ui/react";
 import { FaSearch } from "react-icons/fa";
 
@@ -52,9 +52,7 @@ const Index = () => {
         <Heading fontSize="xl">Color Name Finder</Heading>
         <Text mt={4}>Enter a HEX color code to find its name.</Text>
         <Input placeholder="#aabbcc" value={colorHex} onChange={(e) => setColorHex(e.target.value)} mt={2} />
-        <Button leftIcon={<FaSearch />} colorScheme="teal" mt={2} onClick={handleColorSearch}>
-          Translate Hex
-        </Button>
+
         {colorName && (
           <Box mt={2} p={2} bg={`#${colorHex}`} color="white" borderWidth="1px">
             Color Preview
