@@ -56,6 +56,11 @@ const Index = () => {
           Translate Hex
         </Button>
         {colorName && (
+          <Box mt={2} p={2} bg={`#${colorHex}`} borderWidth="1px">
+            Color Preview
+          </Box>
+        )}
+        {colorName && (
           <Text mt={2} fontSize="lg" fontWeight="semibold">
             Color Name: {colorName}
           </Text>
