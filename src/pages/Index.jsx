@@ -48,6 +48,11 @@ const Index = () => {
         <Text mt={4}>Enter a HEX color code to find its name.</Text>
         <Input placeholder="#aabbcc" value={colorHex} onChange={(e) => setColorHex(e.target.value)} mt={2} />
 
+        {colorHex && /^[0-9A-Fa-f]{6}$/.test(colorHex) && (
+          <Box mt={2} p={2} bg={`#${colorHex}`} color="white" borderWidth="1px">
+            Input Color Preview: #{colorHex}
+          </Box>
+        )}
         {apiColor && (
           <Box mt={2} p={2} bg={apiColor} color="white" borderWidth="1px">
             API Color Preview: {apiColor}
